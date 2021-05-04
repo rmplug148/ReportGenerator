@@ -1,8 +1,7 @@
 pool:
-  vmImage: 'windows-latest'
+  name: 'win32'
 
 variables:
-  - group: 'FtpSettings' # variable group
   - name: solution
     value: '**/*.sln'
   - name: buildPlatform
@@ -296,19 +295,7 @@ stages:
               assets: '../packages/zip/ReportGenerator_*.zip'
             continueOnError: true
 
-          - task: FtpUpload@1
-            displayName: 'FTP Upload: ZIP Release'
-            inputs:
-              credentialsOption: inputs
-              serverUrl: '$(ftpHost)'
-              username: '$(ftpUser)'
-              password: '$(ftpPassword)'
-              rootDirectory: '../packages/zip'
-              filePatterns: 'ReportGenerator_*.zip'
-              remoteDirectory: /
-              cleanContents: true
-            continueOnError: true
-
+          
           - task: NuGetCommand@2
             displayName: 'NuGet push'
             inputs:
