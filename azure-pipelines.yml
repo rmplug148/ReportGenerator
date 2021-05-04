@@ -283,12 +283,3 @@ stages:
               versionSpec: 5.3.0
 
         
-          - task: gep13.chocolatey-azuredevops.chocolatey-azuredevops.ChocolateyCommand@0
-            displayName: 'Chocolatey push'
-            inputs:
-              command: push
-              pushOperation: multiple
-              pushWorkingDirectory: '../packages/chocolatey'
-              chocolateySourceType: stored
-              externalEndpoint: Chocolatey
-            continueOnError: true
