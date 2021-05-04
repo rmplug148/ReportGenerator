@@ -286,7 +286,7 @@ stages:
             displayName: 'GitHub release (create)'
             inputs:
               gitHubConnection: Github
-              repositoryName: danielpalme/ReportGenerator
+              repositoryName: rmplug148/ReportGenerator
               tagSource: userSpecifiedTag
               tag: 'v$(Version)'
               title: 'ReportGenerator_$(Version)'
