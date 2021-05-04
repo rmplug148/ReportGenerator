@@ -305,20 +305,6 @@ stages:
               publishFeedCredentials: Nuget.org
             continueOnError: true
 
-          - task: ms-devlabs.vsts-developer-tools-build-tasks.tfx-installer-build-task.TfxInstaller@2
-            displayName: 'Use Node CLI for Azure DevOps (tfx-cli): v0.7.x'
-            inputs:
-              version: v0.7.x
-
-          - task: ms-devlabs.vsts-developer-tools-build-tasks.publish-extension-build-task.PublishAzureDevOpsExtension@2
-            displayName: 'Publish Extension'
-            inputs:
-              connectedServiceName: 'Visual Studio Marketplace'
-              fileType: vsix
-              vsixFile: '../packages/vsix/Palmmedia.reportgenerator-*.vsix'
-              updateTasksVersion: false
-            continueOnError: true
-
           - task: gep13.chocolatey-azuredevops.chocolatey-azuredevops.ChocolateyCommand@0
             displayName: 'Chocolatey push'
             inputs:
